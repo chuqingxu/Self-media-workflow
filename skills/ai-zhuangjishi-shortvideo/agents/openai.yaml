@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 装机师短视频"
+  short_description: "为 AI 装机师个人 IP 生成抖音、视频号脚本、剪辑说明、发布文案和私域承接。"
+  default_prompt: "用 AI 装机师短视频 skill，围绕一个主题生成抖音和视频号真人口播脚本、拍摄清单、剪辑说明、发布文案和微信承接话术。"
