@@ -6,6 +6,16 @@
 - `single_agent_with_reviews`: one assistant used multiple review perspectives without independent agent execution.
 - `single_agent_direct`: one assistant produced the artifact directly.
 
+## Wake Phrase
+
+The wake phrase is:
+
+```text
+你用ai装机师skill
+```
+
+When this phrase appears, treat it as explicit authorization to enter `real_multi_agent` mode for the requested task. Start with Mode Gate, spawn real subagents when available, and do not describe the run as multi-agent unless the run leaves independent handoff evidence.
+
 ## Minimum Real Multi-Agent Run
 
 1. 总控制片人 creates `00-orchestrator-brief.md`.

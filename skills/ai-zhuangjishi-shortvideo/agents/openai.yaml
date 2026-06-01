@@ -1,4 +1,4 @@
 interface:
   display_name: "AI 装机师短视频全流程"
-  short_description: "从概念讨论到脚本、拍摄、剪辑、平台适配、私域和复盘；如需多 agent，必须有独立 handoff 与审计记录。"
-  default_prompt: "用 AI 装机师短视频全流程 skill，先判断当前阶段；如果我要求真实多 agent，请实际调用子 agent 并留下 handoff 和审核记录。"
+  short_description: "唤醒词“你用ai装机师skill”；触发后默认进入真实多 agent，必须有独立 handoff 与审计记录。"
+  default_prompt: "你用ai装机师skill，先判断当前阶段，真实多 agent 协作，并留下 handoff 和审核记录。"

@@ -1,9 +1,36 @@
 ---
 name: ai-zhuangjishi-shortvideo
-description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
+description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
 ---
 
 # AI 装机师短视频全流程
+
+## Wake Phrase
+
+The user's wake phrase is:
+
+```text
+你用ai装机师skill
+```
+
+Treat common spacing/capitalization variants as the same trigger, including:
+
+```text
+你用 AI 装机师 skill
+你用ai装机师 skill
+你用 AI装机师skill
+```
+
+When the wake phrase appears, enter this skill immediately and treat it as the user's standing explicit request for `real_multi_agent` collaboration for that task.
+
+Required behavior after the wake phrase:
+
+1. Start with Mode Gate.
+2. State `Execution Mode: real_multi_agent` if subagent tools are available.
+3. Spawn real subagents for independent work rather than role-playing them in the main thread.
+4. Use a minimum production set when the task is content production: 口播编剧 Agent, 剪辑/平台优化 Agent, 审核 Agent, with the main assistant as 总控制片人.
+5. Leave handoff/audit evidence when writing to a folder, or summarize each agent's independent output in the final answer.
+6. If subagent tools are not available, state: `当前环境无法真实调用子 agent，本次只能 single_agent_with_reviews` and do not claim multi-agent collaboration.
 
 ## Non-Negotiable Truth Rule
 
@@ -16,7 +43,7 @@ Use these execution modes honestly:
 - `single_agent_direct`: one Codex instance produces the requested artifact directly.
 - `tool_executed`: local tools such as HyperFrames, ffmpeg, transcription, browser, or file operations were actually used.
 
-If the user asks for real multi-agent collaboration and subagent tools are available, spawn subagents for independent work. If subagent tools are not available, say so and continue only as `单 agent 分角色` after making the limitation explicit.
+If the user uses the wake phrase or otherwise asks for real multi-agent collaboration and subagent tools are available, spawn subagents for independent work. If subagent tools are not available, say so and continue only as `single_agent_with_reviews` after making the limitation explicit.
 
 Only call work `real_multi_agent` when there is checkable evidence:
 
@@ -102,7 +129,8 @@ Recommended agent roster:
 Rules:
 
 - Do not spawn agents just to make the process look serious.
-- Spawn only when the user explicitly asks for multi-agent collaboration or the current task clearly benefits from parallel independent work and the user has authorized it.
+- The wake phrase counts as explicit authorization for real multi-agent collaboration for that task.
+- Spawn only when the user uses the wake phrase, explicitly asks for multi-agent collaboration, or the current task clearly benefits from parallel independent work and the user has authorized it.
 - Give each subagent a concrete, bounded task and a required artifact.
 - Do not let multiple agents edit the same file unless explicitly coordinating a merge.
 - The main assistant must integrate the outputs and own the final decision.

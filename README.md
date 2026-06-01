@@ -62,6 +62,41 @@ Tool Execution: none / HyperFrames / ffmpeg / transcription / browser / other
 本次为单 agent 执行，不伪装成多 agent。
 ```
 
+## 唤醒词
+
+默认唤醒词：
+
+```text
+你用ai装机师skill
+```
+
+以下写法也视为同一个触发：
+
+```text
+你用 AI 装机师 skill
+你用ai装机师 skill
+你用 AI装机师skill
+```
+
+当你使用这个唤醒词时，工作流不再按普通“文案助手”处理，而是默认进入真实多 agent 协同流程：
+
+```text
+Mode Gate
+  -> 总控制片人判断阶段
+  -> spawn 独立子 agent
+  -> 子 agent 分别产出脚本、剪辑/平台方案、审核意见
+  -> 总控合并
+  -> 输出 Execution Mode 与审核结果
+```
+
+如果当前环境支持子 agent，就必须真实调用；如果当前环境不支持，就必须明确说：
+
+```text
+当前环境无法真实调用子 agent，本次只能 single_agent_with_reviews。
+```
+
+不能把一个助手的多视角思考说成多 agent 协作。
+
 ## 工作原理
 
 完整链路不是“主题 -> 文案”，而是：
@@ -326,13 +361,13 @@ cp -R skills/ai-zhuangjishi-shortvideo ~/.codex/skills/
 安装后，在 Codex 里可以这样调用：
 
 ```text
-用 AI 装机师短视频全流程 skill，我想拍一个“老板买了 AI 会员但员工不用”的视频，先跟我讨论概念，不要直接写稿。
+你用ai装机师skill，我想拍一个“老板买了 AI 会员但员工不用”的视频，先跟我讨论概念，不要直接写稿。
 ```
 
 真实多 agent 调用示例：
 
 ```text
-用 AI 装机师短视频全流程 skill，真实多 agent 协作：一个 agent 做脚本，一个 agent 做平台剪辑方案，一个 agent 做审核，最后总控合并。
+你用ai装机师skill，我想拍一个“老板买了 AI 会员但员工不用”的视频。真实多 agent 协作：一个 agent 做脚本，一个 agent 做平台剪辑方案，一个 agent 做审核，最后总控合并。
 ```
 
 ## 推荐项目目录
