@@ -1,6 +1,6 @@
 ---
 name: ai-zhuangjishi-shortvideo
-description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
+description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, 爆款素材库, 爆款拆解, 竞品视频拆解, 素材库沉淀, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
 ---
 
 # AI 装机师短视频全流程
@@ -99,6 +99,7 @@ First identify the user's current stage. Do not force every request into script 
 | 私域承接 | 要引流/微信话术 | 评论区引导、加微信首句、分流问题 |
 | 数据复盘 | 用户给发布数据 | 问题归因、保留/砍掉、下一轮实验 |
 | 系列延伸 | 某条反馈好/想扩展 | 3-10 条延伸选题和拍摄优先级 |
+| 爆款拆解 | 用户给链接/视频/截图，或要求找素材 | 结构拆解、借鉴点、老初版本改写、入库文件 |
 
 If the user is at 概念澄清 stage, ask only the few questions needed to move forward. Prefer 3-5 questions:
 
@@ -245,6 +246,50 @@ If the user provides a target folder and asks to落文件夹, create or update p
 ```
 
 Do not write files unless the user clearly asks for filesystem output.
+
+## Viral Material Library
+
+Use a lightweight 爆款拆解库 to accumulate reusable structures. Prefer "user-fed first, assistant-found second":
+
+- 用户喂素材: video link, local video path, screenshot, title/caption, performance data, or notes about why it felt useful.
+- 助手找素材: only when the user asks; use public/searchable sources or browser access. Do not claim complete coverage of Douyin or 视频号 because platform access and recommendation feeds are limited.
+
+When the user says `拆解这个爆款`, `放进爆款拆解库`, `建立素材库`, or gives a video/link for analysis, enter 爆款拆解 stage.
+
+For each item, extract:
+
+- 来源: 平台、链接、账号、发布时间 if available, performance data if provided
+- 开头 3 秒: exact hook or visual opening
+- 核心冲突: why the target viewer keeps watching
+- 口播结构: setup, pain, turn, proof, CTA
+- 镜头/画中画: main shot, screen demo, B-roll, text card, before/after
+- 字幕节奏: density, emphasis words, line breaks
+- 标题封面: title, cover text, thumbnail idea
+- 评论区引导: prompt, keyword, pinned comment
+- 为什么有效: audience, emotion, information density, platform fit
+- 老初版本改写: how to adapt without copying
+- 系列延伸: 3-5 follow-up angles
+- 承接方向: token / 企业定制 / 信任沉淀
+
+If writing files, use:
+
+```text
+爆款拆解库/
+  抖音/
+  视频号/
+  小红书/
+  通用结构/
+```
+
+Filename pattern:
+
+```text
+爆款拆解库/抖音/001-主题短名.md
+```
+
+Do not copy another creator's wording wholesale. Extract structure, rhythm, visual method, and conversion logic, then rewrite into the 老初/AI 装机师 voice.
+
+When using 爆款拆解库 for a new concept, retrieve 1-3 relevant structures first, then produce the new script and shooting plan.
 
 ## Editing Execution Modes
 
