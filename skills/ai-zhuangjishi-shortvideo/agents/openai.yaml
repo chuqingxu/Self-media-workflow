@@ -1,4 +1,4 @@
 interface:
   display_name: "AI 装机师短视频全流程"
-  short_description: "唤醒词“你用ai装机师skill”；支持真实多 agent、视频制作、爆款拆解库、handoff 与审计记录。"
-  default_prompt: "你用ai装机师skill，先判断当前阶段；如涉及素材/爆款拆解/视频制作，真实多 agent 协作并留下 handoff 和审核记录。"
+  short_description: "唤醒词“你用ai装机师skill”；支持真实多 agent、视频制作、爆款拆解库、抖音/星图合规预审、handoff 与审计记录。"
+  default_prompt: "你用ai装机师skill，先判断当前阶段；如涉及素材/爆款拆解/视频制作/抖音发布，真实多 agent 协作并留下 handoff、审核和抖音合规预审记录。"

@@ -150,7 +150,7 @@ Mode Gate
 | 剪辑 Agent | 剪映清单、HyperFrames 画中画、字幕动效 | 剪辑方案或成片工程 |
 | 平台优化 Agent | 抖音/视频号/小红书机制适配 | 平台版本建议 |
 | 私域转化 Agent | 评论区、加微信、token/定制分流 | 私域承接话术 |
-| 审核 Agent | 人设一致性、合规、转化链路、是否可拍 | 审核报告 |
+| 审核 Agent | 人设一致性、抖音/星图合规、转化链路、是否可拍 | 审核报告 |
 
 最小真实多 agent 组合：
 
@@ -257,6 +257,49 @@ OpenAI API / Agents SDK
 有 handoff 记录：本次使用真实多 agent 协作
 无 handoff 记录：本次为单 agent 生成，并做多视角自检
 ```
+
+### Douyin/Xingtu Compliance Gate
+
+抖音版发布前必须增加一层合规预审，吸收 `douyin-rule-check` 的规则，重点看两类风险：
+
+```text
+A 类：引导用户脱离平台交易或沟通
+B 类：引导下载、搜索、打开、注册、扫码使用第三方 App
+```
+
+检查范围：
+
+```text
+口播
+字幕
+封面字
+标题
+话题
+评论区引导
+置顶评论
+画中画/截图/屏幕录制里的二维码、微信号、手机号、地址、第三方 App 搜索框
+```
+
+核心判断：
+
+```text
+分享式表达通常更安全，命令式跳转风险高。
+```
+
+例子：
+
+```text
+高风险：加我微信，我发你检查清单。
+更安全：这套检查清单我后面会继续拆。
+
+高风险：去 XX app 搜这个功能。
+更安全：我之前在 XX app 上看到过类似功能。
+
+高风险：评论区留微信/看主页联系方式。
+更安全：你可以在评论区说说你公司最卡的是客服、销售还是文档。
+```
+
+注意：这道审核只负责抖音/巨量星图的外流和第三方 App 引导风险，不替代广告法、行业资质、功效承诺、版权、原创度等审查，也不直接适用于微信视频号、小红书、B站或快手。
 
 ## 剪辑执行方式
 
@@ -468,6 +511,7 @@ Self-media-workflow/
         openai.yaml
   templates/
     agent-handoff-template.md
+    douyin-compliance-precheck-template.md
     viral-breakdown-template.md
     video-production-card.md
   workflows/

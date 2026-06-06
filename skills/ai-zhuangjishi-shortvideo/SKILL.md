@@ -1,6 +1,6 @@
 ---
 name: ai-zhuangjishi-shortvideo
-description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, 爆款素材库, 爆款拆解, 竞品视频拆解, 素材库沉淀, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
+description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, 爆款素材库, 爆款拆解, 竞品视频拆解, 素材库沉淀, 抖音合规, 星图预审, 外流风险, 第三方 App 引导风险, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
 ---
 
 # AI 装机师短视频全流程
@@ -96,9 +96,11 @@ First identify the user's current stage. Do not force every request into script 
 | 素材分析 | 用户给了视频/音频 | 转录、金句、废话段、可用片段 |
 | 成片剪辑 | 要剪辑/画中画/字幕 | 剪映清单或 HyperFrames 成片方案 |
 | 平台适配 | 要发多个平台 | 各平台剪辑差异、标题、封面、话题 |
+| 抖音合规预审 | 抖音发布前、星图预审、口播/字幕/封面/评论区检查 | 外流风险、第三方 App 引导风险、安全替代表达 |
 | 私域承接 | 要引流/微信话术 | 评论区引导、加微信首句、分流问题 |
 | 数据复盘 | 用户给发布数据 | 问题归因、保留/砍掉、下一轮实验 |
 | 系列延伸 | 某条反馈好/想扩展 | 3-10 条延伸选题和拍摄优先级 |
+| 嘉宾问题库 | 提到某期嘉宾、访谈、采访、预设问题 | 嘉宾画像、独家问题、追问、禁问、现场顺序 |
 | 爆款拆解 | 用户给链接/视频/截图，或要求找素材 | 结构拆解、借鉴点、老初版本改写、入库文件 |
 
 If the user is at 概念澄清 stage, ask only the few questions needed to move forward. Prefer 3-5 questions:
@@ -125,7 +127,7 @@ Recommended agent roster:
 | 剪辑 Agent | 剪映清单、HyperFrames 画中画、字幕动效 | strong coding/video |
 | 平台优化 Agent | 抖音/视频号/小红书机制适配 | standard |
 | 私域转化 Agent | 评论区、加微信、token/定制分流 | standard |
-| 审核 Agent | 人设一致性、合规、转化链路、是否可拍 | strongest available |
+| 审核 Agent | 人设一致性、抖音/星图合规、转化链路、是否可拍 | strongest available |
 
 Rules:
 
@@ -214,7 +216,8 @@ For a single concept that has been clarified, produce:
 9. 标题、封面字、话题
 10. 评论区引导
 11. 加微信后的首句承接话术
-12. 审核结果
+12. 嘉宾专属问题库 when there is a guest/interview
+13. 审核结果
 
 For a batch plan, produce a table with:
 
@@ -238,6 +241,7 @@ If the user provides a target folder and asks to落文件夹, create or update p
 单条视频/
 素材/
 脚本/
+问题库/
 拍摄清单/
 剪辑工程/
 发布文案/
@@ -246,6 +250,66 @@ If the user provides a target folder and asks to落文件夹, create or update p
 ```
 
 Do not write files unless the user clearly asks for filesystem output.
+
+## Guest-Specific Question Bank
+
+Use this when each episode has a guest, interviewee,老板,企业负责人, or field-test subject. Build a fresh question bank before scripting so every episode has practical, easy, catchy, non-repeating questions.
+
+Core rule:
+
+> 每期问题都必须围绕“这个嘉宾独有的行业、身份、业务场景和当下卡点”，不能复用泛泛的 AI 访谈问题。
+
+For each guest, produce:
+
+1. 嘉宾画像: 身份、行业、业务压力、他为什么适合这一期
+2. 本期核心验证: 这期到底要验证 Codex/AI 能不能进入哪个真实业务
+3. 10-15 个专属主问题: short, plain, practical, and shootable
+4. 5-8 个现场追问: used when the answer is vague, boastful, or too abstract
+5. 3-5 个抓人问题: sharper first-3-seconds hooks or trailer questions
+6. 禁问/慎问: privacy, trade secrets, unlicensed endorsements, pricing promises, platform-sensitive claims
+7. 问题顺序: 装前 -> 装中 -> 第一次反应 -> 业务迁移 -> 下一步
+
+Question types to mix:
+
+- 痛点问题: “你现在最烦、最重复、最没人处理的一件事是什么？”
+- 判断问题: “这个回答能不能拿去给客户/员工/老板看？”
+- 对比问题: “不用 AI 以前，这件事通常怎么做？卡在哪里？”
+- 拆解问题: “如果把它放进公司流程，第一步应该接在哪？”
+- 反应问题: “刚才哪一刻你觉得它不是玩具？”
+- 风险问题: “你最担心员工乱用它造成什么问题？”
+- 迁移问题: “如果只选一个场景先试，你会选客服、销售、文档、报价还是内部协作？”
+- 回访问题: “明天你会不会自己再打开？如果会，你第一件事想问什么？”
+
+Style requirements:
+
+- Prefer one sentence per question, 10-24 Chinese characters when possible.
+- Use老板能听懂的话; avoid model names, API, agent, vector database, RAG unless the guest is technical.
+- Make questions answerable on camera in 10-30 seconds.
+- Avoid “你怎么看 AI” unless it is immediately tied to a concrete业务动作.
+- Do not repeat the same generic question across episodes; adapt by industry and role.
+- Include at least one question that can become the video title or opening hook.
+
+Useful output format:
+
+```markdown
+## 嘉宾专属问题库：{嘉宾名}
+
+- 本期验证:
+- 适合他的原因:
+- 首发钩子问题:
+
+| 阶段 | 问题 | 目的 | 可拍画面 |
+| --- | --- | --- | --- |
+| 装前 |  |  |  |
+| 装中 |  |  |  |
+| 反应 |  |  |  |
+| 迁移 |  |  |  |
+| 回访 |  |  |  |
+
+### 现场追问
+
+### 禁问/慎问
+```
 
 ## Viral Material Library
 
@@ -330,7 +394,7 @@ For 抖音:
 - Start with conflict, pain, or a blunt老板视角 question in the first 3 seconds.
 - Optimize for completion rate: no long self-introduction, no abstract background.
 - Use dense口播, quick cuts, large subtitles, and clear visual beats.
-- Public CTA should usually be a checklist, diagnosis, or comment keyword; avoid hard-selling token in the video.
+- Public CTA should usually stay inside Douyin interaction, such as comments, follow-up episodes, or in-platform engagement. Avoid hard-selling token, asking viewers to add WeChat, scan codes, search stores, or leave Douyin.
 
 For 微信视频号:
 
@@ -367,6 +431,71 @@ After the viewer adds WeChat, segment gently:
 - If they only need a low-cost AI入口, recommend token/access after understanding usage volume and tool needs.
 - If they mention company资料、客服、销售、报价、运营、知识库、自动化流程, move toward custom enterprise AI project diagnosis.
 - If intent is unclear, ask: “你现在最想让 AI 先帮公司处理哪一块，客服、销售、文档，还是员工日常提效？”
+
+## Douyin/Xingtu Compliance Precheck
+
+Integrate `douyin-rule-check` as part of the 审核 Agent for 抖音/巨量星图 publication. This is a narrow precheck, not a full legal or all-platform compliance review.
+
+Scope:
+
+- A 类: 引导用户脱离平台交易或沟通
+- B 类: 引导下载、搜索、打开、注册、扫码使用第三方 App
+
+Must check all public-facing Douyin assets:
+
+- 口播
+- 字幕
+- 封面字
+- 标题
+- 话题
+- 评论区引导
+- 置顶评论
+- 画中画/截图/屏幕录制中的二维码、微信号、手机号、地址、第三方 App 搜索框
+
+High-risk A 类 examples:
+
+- 加微信、加我、私聊我、主页找联系方式
+- 扫码、看二维码、看评论区联系方式
+- 去淘宝/小店/线下门店/某地址找
+- 私下交易、线下自取、站外咨询
+
+High-risk B 类 examples:
+
+- 下载某 App、应用商店搜某 App
+- 打开某 App、注册某 App
+- 扫码免费试用、去某 App 领福利
+- 明确命令观众离开抖音完成第三方平台动作
+
+Core judgment:
+
+```text
+分享式表达 usually safer.
+命令式跳转 high risk.
+```
+
+Examples:
+
+- Risky: “去 XX app 搜这个功能。”
+- Safer: “我之前在 XX app 上看到过类似功能。”
+- Risky: “加我微信，我发你检查清单。”
+- Safer for Douyin: “这套检查清单我后面会继续拆。”
+- Risky: “评论区留微信/看主页联系方式。”
+- Safer for Douyin: “你可以在评论区说说你公司最卡的是客服、销售还是文档。”
+
+Required output for Douyin precheck:
+
+```markdown
+## 抖音/星图合规预审
+
+- 结论: pass / revise / high risk
+- A 类外流风险:
+- B 类第三方 App 风险:
+- 具体风险句/画面:
+- 建议替代表达:
+- 范围外提醒:
+```
+
+If risk is found, revise the Douyin version before finalizing. Do not weaken 视频号/私域承接 logic globally; only make the Douyin public-facing version safer.
 
 ## Audit Gates
 
@@ -415,6 +544,7 @@ Use three production review gates.
 - Does each platform version have a reason to exist?
 - Any exaggerated promise or risky claim?
 - Is the private-domain next step clear?
+- For 抖音/星图: run Douyin/Xingtu Compliance Precheck before finalizing口播、字幕、封面、评论区和画中画.
 
 ### 复盘后审核
 
