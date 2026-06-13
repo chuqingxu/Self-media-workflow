@@ -1,6 +1,6 @@
 ---
 name: ai-zhuangjishi-shortvideo
-description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 私域承接, 数据复盘, 系列延伸, 爆款素材库, 爆款拆解, 竞品视频拆解, 素材库沉淀, 抖音合规, 星图预审, 外流风险, 第三方 App 引导风险, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
+description: Full short-video production workflow for the "AI 装机师" personal IP. Use when the user says the wake phrase "你用ai装机师skill", "你用 AI 装机师 skill", or asks for 抖音, 微信视频号, 小红书, 短视频, 个人 IP 引流, 概念讨论, 文案, 真人口播脚本, 拍摄清单, 素材转录, 剪映协作, HyperFrames 自动成片, 画中画, 多平台适配, 发布包装, 封面生成, image2 生图, 爆款封面, 封面样本, 私域承接, 数据复盘, 系列延伸, 爆款素材库, 爆款拆解, 竞品视频拆解, 素材库沉淀, 抖音合规, 星图预审, 外流风险, 第三方 App 引导风险, or true multi-agent collaboration for 二三线城市中小企业老板 content that sells AI access/token services or custom enterprise AI projects.
 ---
 
 # AI 装机师短视频全流程
@@ -95,6 +95,7 @@ First identify the user's current stage. Do not force every request into script 
 | 拍摄准备 | 要拍摄清单/怎么录 | 镜头、补拍素材、口播注意事项 |
 | 素材分析 | 用户给了视频/音频 | 转录、金句、废话段、可用片段 |
 | 成片剪辑 | 要剪辑/画中画/字幕 | 剪映清单或 HyperFrames 成片方案 |
+| 封面生成 | 要封面、生图、image2、爆款封面、给封面样本 | 封面策略、image2 生图提示词、生成图、封面字排版与审核 |
 | 平台适配 | 要发多个平台 | 各平台剪辑差异、标题、封面、话题 |
 | 抖音合规预审 | 抖音发布前、星图预审、口播/字幕/封面/评论区检查 | 外流风险、第三方 App 引导风险、安全替代表达 |
 | 私域承接 | 要引流/微信话术 | 评论区引导、加微信首句、分流问题 |
@@ -125,6 +126,7 @@ Recommended agent roster:
 | 拍摄导演 Agent | 镜头、画面、补拍、现场执行 | standard |
 | 素材整理 Agent | 转录、挑片段、删废话、金句标记 | fast/standard |
 | 剪辑 Agent | 剪映清单、HyperFrames 画中画、字幕动效 | strong coding/video |
+| 封面生成 Agent | 爆款封面策略、image2 生图、中文大字排版、封面 A/B 版本 | image2-capable image model + strong visual judgment |
 | 平台优化 Agent | 抖音/视频号/小红书机制适配 | standard |
 | 私域转化 Agent | 评论区、加微信、token/定制分流 | standard |
 | 审核 Agent | 人设一致性、抖音/星图合规、转化链路、是否可拍 | strongest available |
@@ -213,7 +215,7 @@ For a single concept that has been clarified, produce:
 6. 拍摄清单
 7. 画中画分镜表
 8. 剪映协作清单 or HyperFrames 成片方案
-9. 标题、封面字、话题
+9. 标题、封面字、封面生成方案、话题
 10. 评论区引导
 11. 加微信后的首句承接话术
 12. 嘉宾专属问题库 when there is a guest/interview
@@ -244,6 +246,7 @@ If the user provides a target folder and asks to落文件夹, create or update p
 问题库/
 拍摄清单/
 剪辑工程/
+封面/
 发布文案/
 复盘/
 私域承接话术/
@@ -354,6 +357,71 @@ Filename pattern:
 Do not copy another creator's wording wholesale. Extract structure, rhythm, visual method, and conversion logic, then rewrite into the 老初/AI 装机师 voice.
 
 When using 爆款拆解库 for a new concept, retrieve 1-3 relevant structures first, then produce the new script and shooting plan.
+
+## Cover Generation Agent
+
+Use this when the user asks for 封面, 封面生成, 生图, image2, 爆款封面, 封面样本, or gives cover references.
+
+Hard rule:
+
+> 封面生图阶段必须调用 image2 模型能力或当前环境中等价的 image2-capable image generation entrypoint. Do not pretend a prompt-only plan is an actual generated cover.
+
+Execution modes:
+
+- `tool_executed`: image2/image generation tool was actually called and produced an image.
+- `single_agent_direct`: only a cover strategy or prompt was produced because image generation was unavailable.
+
+If the environment exposes the image tool as `image_gen`, use it as the image2-capable generation entrypoint. If the tool does not expose a model selector, state that the available built-in image generation tool was used for the image2-required stage and do not claim a specific hidden model parameter was manually selected.
+
+Default AI 装机师 cover style, based on the user's reference samples:
+
+- Vertical cover, usually 3:4 or 4:5 for feed cover; adapt to 9:16 when used as a title card.
+- 真人近景 or 半身, black T-shirt, direct eye contact, pointing at the camera or holding a phone.
+- Background: office, park/greenery, factory/warehouse, storefront, or dark tech background; keep it blurred and secondary.
+- Huge Chinese headline, 2-4 short lines, occupying 45%-65% of the canvas.
+- Typography: extra-bold Chinese characters, black stroke, heavy drop shadow, slight 3D/extruded effect.
+- Palette: white + cyan/blue/green + yellow/orange emphasis. Avoid weak pastel or elegant poster styles.
+- Emotion: 老板朋友型 but blunt; the cover should feel like “老板，别踩坑，我跟你说句实话”.
+- No QR code, no WeChat ID, no phone number, no platform logo, no misleading official badges.
+
+Cover workflow:
+
+1. Extract the video promise: target老板, pain, contradiction, result, platform.
+2. Produce 3 cover text options, each under 18 Chinese characters for the main headline if possible.
+3. Select one primary cover direction and one backup A/B direction.
+4. Build an image2 prompt with: scene, creator pose, background, text layout, color, negative constraints.
+5. Call image2/image generation when available.
+6. Inspect the generated image for: readable Chinese text, face/hand issues, platform compliance, brand fit.
+7. If Chinese text is wrong or unstable, keep the generated portrait/background as visual base and recommend deterministic text overlay via HyperFrames, CapCut/剪映, Canva, Figma, or a local image composition script.
+8. Run Douyin/Xingtu Compliance Precheck on the final public-facing cover text for 抖音.
+
+Important text rule:
+
+Image generation may distort Chinese characters. For final publishing, exact Chinese cover text should be treated as a layout asset, not only as pixels produced by the image model. Prefer this production split when quality matters:
+
+```text
+image2 生成真人/背景/爆款视觉底图
+  -> 人工或工具确定性叠加中文大字
+  -> 审核 Agent 检查封面字与平台风险
+```
+
+Required output when generating covers:
+
+```markdown
+## 封面生成
+
+- Execution Mode:
+- Tool Execution:
+- 目标平台:
+- 画幅:
+- 主封面字:
+- 备选封面字:
+- image2 提示词:
+- 生成图路径或结果:
+- 中文文字检查:
+- 抖音/星图封面风险:
+- 下一步修正:
+```
 
 ## Editing Execution Modes
 
